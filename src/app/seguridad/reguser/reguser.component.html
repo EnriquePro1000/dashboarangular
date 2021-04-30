@@ -12,14 +12,14 @@
             <hr class="sidebar-divider">
             
 
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i></i><span>Seguridad</span>
                 </a>
                 
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">    
-                        <a class="collapse-item" routerLink="/registrar" >Registrar usuario</a>
+                        <a class="collapse-item active" routerLink="/registrar" >Registrar usuario</a>
                         <a class="collapse-item" href="RegistrarCliente" onclick = "location = 'RegistrarCliente'">Registrar cliente</a> 
                         <a class="collapse-item" href="ModificarCliente" onclick = "location = 'ModificarCliente'">Modificar cliente</a>
                         <a class="collapse-item" href="ModificarSaldo" onclick = "location = 'ModificarSaldo'">Modificar saldo</a>
@@ -45,11 +45,42 @@
             <hr class="sidebar-divider">
         </ul>
         
+        
+        
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
                 <app-header></app-header>
+              <!-- Formulario de registro de usuario-->  
+                <div class="col-lg-4" style="margin: 0 auto;">
+                    <div class="form-group">
+                        <input type="text" class="form-control form-control-user" name='cedula' placeholder="Cedula..." value="">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control form-control-user" name='nombres' placeholder="Nombres..." value="">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control form-control-user" name='apellidos' placeholder="Apellidos..." value="">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control form-control-user" name='email' placeholder="Email..." value="">
+                    </div>
+                    
+                    <div class="form-group row">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                            <input id="password" type="password" class="form-control" name="password" required placeholder="Contraseña...">
+                        </div>
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required placeholder="Confirmar..."></div>
+                    </div>
+                    
+                    <button class="btn btn-success btn-user btn-block" type="submit">registrar</button>
+                    <button class="btn btn-secondary btn-user btn-block" type="reset">Limpiar</button>
+                  
+                </div>
+              
+               <!-- Fin del formulario de registro de usuario-->            
             </div>
-                <app-footer></app-footer>
+            <app-footer></app-footer>
         </div>
     </div>
     
