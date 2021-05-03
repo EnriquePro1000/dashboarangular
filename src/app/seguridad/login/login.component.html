@@ -1,5 +1,5 @@
 
-<body class="bg-gradient-primary">
+<body class="bg-gradient-primary" >
 
     <div class="container">
 
@@ -24,10 +24,17 @@
                                                 id="email" formControlName="email"
                                                 placeholder="Enter Email Address...">
                                         </div>
+                                        
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
                                                 id="password" formControlName="password" placeholder="Password">
                                         </div>
+                                        
+                                        <div class="form-group" *ngIf="errorStatus">
+                                    <span class="help-block">
+                                        <strong>{{ errorMsj }}</strong>
+                                    </span>   
+                        </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
                                                 <input type="checkbox" class="custom-control-input" id="customCheck">
@@ -64,8 +71,6 @@
         </div>
 
     </div>
-
-
 </body>
 
 

@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../servicios/api/api.service';
+import { Router } from '@angular/router';
+import { ResponseI } from '../../interfaces/response.interface';
+
 
 @Component({
   selector: 'app-header',
@@ -7,9 +11,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(  private api:ApiService, 
+    private router:Router) { }
 
   ngOnInit(): void {
   }
+
+
+
+
 
 }
