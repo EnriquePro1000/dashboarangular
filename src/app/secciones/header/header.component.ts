@@ -18,7 +18,26 @@ export class HeaderComponent implements OnInit {
   }
 
 
+  onLogout(): void{
 
+    this.api.logout().subscribe(data => {
+ 
+    let dataResponse:ResponseI = data;
+    if(dataResponse.status == "ok"){
+      localStorage.setItem("logged","false");
+      localStorage.setItem("token","null"); 
+   
+        window.location.href="/login"
+
+   
+  }else{
+  } 
+ 
+    });
+
+
+
+}
 
 
 }

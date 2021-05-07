@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { ApiService } from '../../servicios/api/api.service';
 import { Router } from '@angular/router';
-import { LoginService } from '../../servicios/login/login.service';
+
 import { ResponseI } from '../../interfaces/response.interface';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
@@ -10,50 +10,41 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
-  
+  styleUrls: ['./login.component.css'],  
 })
 
-export class LoginComponent implements OnInit {
-    
-
-  
+export class LoginComponent implements OnInit {  
     loginForm = new FormGroup({
-        email : new FormControl('',Validators.required),
+        email    : new FormControl('',Validators.required),
         password : new FormControl('',Validators.required)
 })
 
+constructor(private api:ApiService, private router:Router) { }
 
-  constructor( 
-      private api:ApiService, 
-      private router:Router,
-      private LoggedIn:LoginService ) { }
-        errorStatus:boolean = false;
-        errorMsj = "estas credenciales no coinciden con nuestros registros";
-        
-    
+errorStatus_1:boolean = false;
+errorMsj_1 = "este email o nickname no existe";
 
-    ngOnInit(): void {
-  }
+errorStatus_2:boolean = false;
+errorMsj_2 = "password incorrecto";
 
-    onLogin(form){
-        this.api.loginByEmail(form).subscribe(data => {
-        console.log(data);
+ngOnInit(): void {}
+
+onLogin(form){
+    this.api.loginByEmail(form).subscribe(data => { //console.log(data);
         let dataResponse:ResponseI = data;
             if(dataResponse.status == "ok"){
-                localStorage.setItem("token",dataResponse.result.api_token);     
+                localStorage.setItem("token",dataResponse.result.api_token);    
                 localStorage.setItem("logged","true");                           
-                this.router.navigate(['home']); 
-      
-             
-             
-            }else{
-                this.errorStatus = true;
-              
-         
-         
-            } 
+                this.router.navigate(['home']);             
+            }
+            if(dataResponse.status == "err_1"){                          
+                this.errorStatus_1 = true;
+                this.errorStatus_2 = false;
+            }
+            if(dataResponse.status == "err_2"){    
+                this.errorStatus_1 = false;
+                this.errorStatus_2 = true;    
+            }
         });
     }
-
 }

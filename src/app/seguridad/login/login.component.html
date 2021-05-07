@@ -30,11 +30,16 @@
                                                 id="password" formControlName="password" placeholder="Password">
                                         </div>
                                         
-                                        <div class="form-group" *ngIf="errorStatus">
+                                        <div class="form-group" *ngIf="errorStatus_1">
                                     <span class="help-block">
-                                        <strong>{{ errorMsj }}</strong>
-                                    </span>   
-                        </div>
+                                        <strong>{{ errorMsj_1 }}</strong>
+                                    </span>
+                                </div>
+                                <div class="form-group" *ngIf="errorStatus_2">
+                                    <span class="help-block">
+                                        <strong>{{ errorMsj_2 }}</strong>
+                                    </span>
+                                </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
                                                 <input type="checkbox" class="custom-control-input" id="customCheck">
