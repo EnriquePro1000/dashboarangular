@@ -1,4 +1,5 @@
 export interface RegisterI {
+    tipo_prestamo:string;
     cedula:string;
     nombres:string;
     apellidos:string;

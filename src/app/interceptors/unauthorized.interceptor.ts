@@ -12,7 +12,6 @@ export class UnauthorizedInterceptor implements HttpInterceptor{
            catchError((err) => {
                console.log(err);
                if([401,403,404].indexOf(err.status) !== -1){
-               localStorage.setItem("id","null"); 
                localStorage.setItem("logged","false"); 
                localStorage.setItem("token","null"); 
                window.location.href="/login"

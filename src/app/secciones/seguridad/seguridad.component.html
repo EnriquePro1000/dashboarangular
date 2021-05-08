@@ -1,0 +1,64 @@
+<!-- cuando hay algun item del modulo seguridad seleccionado-->
+<div *ngIf="inactiveSeguridad" >
+<li class="nav-item active">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+        <i></i><span>Seguridad</span>
+    </a>
+    
+    <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+
+        <div class="bg-white py-2 collapse-inner rounded">   
+            <div *ngIf="canRegister"> 
+            <div *ngIf="activeRegisterUser">
+            <a class="collapse-item "   routerLink="/registrar" >Registrar usuario</a>
+            </div>
+            <div  *ngIf="inactiveRegisterUser" >
+                <a class="collapse-item active"   routerLink="/registrar" >Registrar usuario</a>
+            </div>
+        </div>
+            <div *ngIf="inactiveRegisterClient">
+                <a class="collapse-item" routerLink="/registrarCliente" >Registrar cliente</a> 
+                </div>
+                <div *ngIf="activeRegisterClient">
+                    <a class="collapse-item active" routerLink="/registrarCliente" >Registrar cliente</a> 
+                </div>
+
+                <div *ngIf="inactiveModifyClient">
+                    <a class="collapse-item" routerLink="/modificarCliente" >Modificar cliente</a> 
+                    </div>
+                    <div *ngIf="activeModifyClient">
+                        <a class="collapse-item active" routerLink="/modificarCliente" >Modificar cliente</a> 
+                    </div>
+
+                    <div *ngIf="inactiveModifySaldo">
+                        <a class="collapse-item" routerLink="/modificarSaldo" >Modificar saldo</a> 
+                        </div>
+                        <div *ngIf="activeModifySaldo">
+                            <a class="collapse-item active" routerLink="/modificarSaldo" >Modificar saldo</a> 
+                        </div>
+        </div>
+    </div>
+    
+
+</li>
+
+</div>
+
+<!-- cuando no hay ningun item del modulo seguridad seleccionado-->
+<div *ngIf="activeSeguridad" >
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+        <i></i><span>Seguridad</span>
+    </a>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">  
+            <div *ngIf="canRegister">         
+            <a class="collapse-item"   routerLink="/registrar" >Registrar usuario</a>
+            </div>
+            <a class="collapse-item"  routerLink="/registrarCliente" >Registrar cliente</a> 
+           <a class="collapse-item" routerLink="/modificarCliente">Modificar cliente</a>
+           <a class="collapse-item" routerLink="/modificarSaldo" >Modificar saldo</a> 
+        </div>
+    </div>
+</li>
+</div>

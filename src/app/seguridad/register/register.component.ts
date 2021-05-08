@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
 
     RegisterForm = new FormGroup({
+    tipo_prestamo : new FormControl(),
     cedula : new FormControl('',Validators.required),
     nombres : new FormControl('',Validators.required,),
     apellidos : new FormControl('',Validators.required),
@@ -24,6 +25,7 @@ export class RegisterComponent implements OnInit {
     private router:Router,
   ) { }
 
+  
   errorStatus_0:boolean = false;
   errorMsj_0 = "uno o mas campos están vacios";
 
@@ -42,7 +44,14 @@ export class RegisterComponent implements OnInit {
   exitStatus:boolean = false;
   exitMsj = "el usuario ha sido registrado correctamente";
 
+  tipoPrestamo:boolean = false;
+
   ngOnInit(): void {
+    localStorage.setItem("view", "registeruser");
+    localStorage.setItem("section", "seguridad");
+    if(localStorage.getItem("level") === "1"){
+      this.tipoPrestamo= true;
+    }
   }
 
   onRegister(form){
@@ -65,6 +74,7 @@ export class RegisterComponent implements OnInit {
           this.errorStatus_3 = false;
           this.errorStatus_5 = false;
           this.exitStatus = false;
+          console.log(data)
        }
        
        if(dataResponse.status == "err_1"){

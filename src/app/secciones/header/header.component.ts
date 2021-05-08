@@ -24,9 +24,10 @@ export class HeaderComponent implements OnInit {
  
     let dataResponse:ResponseI = data;
     if(dataResponse.status == "ok"){
+      console.log(data)
       localStorage.setItem("logged","false");
-      localStorage.setItem("token","null"); 
-   
+      localStorage.setItem("token","null");    
+      localStorage.setItem("level","null");
         window.location.href="/login"
 
    

@@ -8,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   constructor() { }
+  canRegister:boolean = true;
 
   ngOnInit(): void {
+    localStorage.setItem("view", "home")
+    localStorage.setItem("section", "null");
+    if(localStorage.getItem("level") === "3"){
+      this.canRegister= false;
+    }
   }
 
 }

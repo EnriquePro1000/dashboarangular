@@ -1,0 +1,63 @@
+
+<!-- cuando no hay ningun item del modulo seguridad seleccionado-->
+<div *ngIf="inactivePrestamos" >
+<li class="nav-item active">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+        <i></i><span>Prestamos</span>
+    </a>
+    
+    <div id="collapseUtilities" class="collapse show" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+
+            <div *ngIf="activeHacerPrestamo === false">
+                <a class="collapse-item"   routerLink="/hacerPrestamo">Hacer Prestamo</a>
+                </div>
+                <div *ngIf="activeHacerPrestamo === true">
+                    <a class="collapse-item active"   routerLink="/hacerPrestamo">Hacer Prestamo</a>
+                </div>
+                
+                <div *ngIf="activeEditarPrestamo === false">
+                    <a class="collapse-item"  routerLink="/editarPrestamo">Editar Prestamo</a>
+                    </div>
+                    <div *ngIf="activeEditarPrestamo === true">
+                        <a class="collapse-item active"  routerLink="/editarPrestamo">Editar Prestamo</a>
+                    </div>
+
+                    <div *ngIf="activeRegistrarPago === false">
+                        <a class="collapse-item"  routerLink="/registrarPago">Registrar Pago</a>    
+                        </div>
+                        <div *ngIf="activeRegistrarPago === true">
+                            <a class="collapse-item active"  routerLink="/registrarPago">Registrar Pago</a>    
+                        </div>
+
+                        <div *ngIf="activeHistorialPago === false">
+                            <a class="collapse-item"  routerLink="/historialPago">Historial de Pago</a>   
+                            </div>
+                            <div *ngIf="activeHistorialPago === true">
+                                <a class="collapse-item active"  routerLink="/historialPago">Historial de Pago</a>    
+                            </div>
+                
+                    
+                    
+        </div>
+    </div>
+</li> 
+</div>
+
+<!-- cuando no hay ningun item del modulo seguridad seleccionado-->
+<div *ngIf="activePrestamos" >
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+        <i></i><span>Prestamos</span>
+    </a>
+    
+    <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item"   routerLink="/hacerPrestamo">Hacer Prestamo</a>
+            <a class="collapse-item"  routerLink="/editarPrestamo">Editar Prestamo</a>
+            <a class="collapse-item"  routerLink="/registrarPago">Registrar Pago</a>            
+            <a class="collapse-item"  routerLink="/historialPago">Historial de Pago</a>            
+        </div>
+    </div>
+</li>
+</div>

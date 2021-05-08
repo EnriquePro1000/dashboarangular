@@ -12,35 +12,9 @@
             <hr class="sidebar-divider">
             
 
-            <li class="nav-item active">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    <i></i><span>Seguridad</span>
-                </a>
-                
-                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">    
-                        <a class="collapse-item active" routerLink="/registrar" >Registrar usuario</a>
-                        <a class="collapse-item" href="RegistrarCliente" onclick = "location = 'RegistrarCliente'">Registrar cliente</a> 
-                        <a class="collapse-item" href="ModificarCliente" onclick = "location = 'ModificarCliente'">Modificar cliente</a>
-                        <a class="collapse-item" href="ModificarSaldo" onclick = "location = 'ModificarSaldo'">Modificar saldo</a>
-                    </div>
-                </div>
-            </li>
+           <app-seguridad></app-seguridad>
             
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-                    <i></i><span>Prestamos</span>
-                </a>
-                
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="HacerPrestamo" onclick = "location = 'HacerPrestamo'" href="utilities-color.html">Hacer Prestamo</a>
-                        <a class="collapse-item" href="EditarPrestamo" onclick = "location = 'EditarPrestamo'" href="utilities-color.html">Editar Prestamo</a>
-                        <a class="collapse-item" href="RegistrarPago" onclick = "location = 'RegistrarPago'" href="utilities-border.html">Registrar Pago</a>            
-                        <a class="collapse-item" href="HistorialPago" onclick = "location = 'HistorialPago'" href="utilities-border.html">Historial de Pago</a>            
-                    </div>
-                </div>
-            </li>
+            <app-prestamos></app-prestamos>
             
             <hr class="sidebar-divider">
         </ul>
@@ -77,17 +51,24 @@
                             <strong>{{ errorMsj_1 }}</strong>
                         </span>
                     </div>
+                    <div *ngIf="tipoPrestamo">
+                        Tipo prestamo:
+                    <select formControlName="tipo_prestamo" class="form-control"  >                         
+                        <option value ="1">Prestamos por días</option>
+                        <option value ="2">Prestamos por mes</option>   
+                    </select> 
+                    </div> 
                     <div class="form-group">
                         Nombres:
-                        <input type="text" class="form-control form-control-user" formControlName='nombres' placeholder="(obligatorio)" value="" maxlength="90">
+                        <input type="text" class="form-control form-control-user" formControlName='nombres' placeholder="(obligatorio)" value="" maxlength="90" onkeyup="javascript:this.value=this.value.toUpperCase();">
                     </div>
                     <div class="form-group">
                         apellidos:
-                        <input type="text" class="form-control form-control-user" formControlName='apellidos' placeholder="(obligatorio)" value="" maxlength="90">
+                        <input type="text" class="form-control form-control-user" formControlName='apellidos' placeholder="(obligatorio)" value="" maxlength="90" onkeyup="javascript:this.value=this.value.toUpperCase();">
                     </div>
                     <div class="form-group">
                         Email:
-                        <input type="text" class="form-control form-control-user" formControlName='email' placeholder="(obligatorio)" value="" maxlength="245">
+                        <input type="text" class="form-control form-control-user" formControlName='email' placeholder="(obligatorio)" value="" maxlength="245" onkeyup="javascript:this.value=this.value.toLowerCase();">
                     </div>
                     <div class="form-group" *ngIf="errorStatus_2">
                         <span class="help-block">
