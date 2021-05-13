@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { ResponseI } from '../../interfaces/response.interface';
 import { LoginI } from '../../interfaces/login/login.interface';
 import { RegisterI } from '../../interfaces/register/register.interface';
+import { RegisterclientI } from '../../interfaces/registerclient/registerclient.interface';
+import { SaldoI } from '../../interfaces/saldo/saldo.interface';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -42,5 +44,19 @@ export class ApiService {
       let headers   = this.headers();
       let direccion = this.url + "register";
       return this.http.post<ResponseI>(direccion,form,{headers});
-    }   
+    }
+
+    //form post, pasa parametros delregister y recibe un response
+    RegisterClient(form:RegisterclientI):Observable<ResponseI>{
+      let headers   = this.headers();
+      let direccion = this.url + "registerClient";
+      return this.http.post<ResponseI>(direccion,form,{headers});
+    }
+
+    //form post, pasa parametros del saldo y recibe un response
+    ModificarSaldo(form:SaldoI):Observable<ResponseI>{
+      let headers   = this.headers();
+      let direccion = this.url + "modifySaldo";
+      return this.http.post<ResponseI>(direccion,form,{headers});
+    }
 }

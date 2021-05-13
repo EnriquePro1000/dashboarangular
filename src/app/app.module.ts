@@ -14,6 +14,7 @@ import { HeaderComponent } from './secciones/header/header.component';
 import { FooterComponent } from './secciones/footer/footer.component';
 import { HomeComponent } from './vistas/home/home.component';
 import { RegisterComponent } from './seguridad/register/register.component';
+import { ModifyComponent } from './seguridad/modify/modify.component';
 import { SeguridadComponent } from './secciones/seguridad/seguridad.component';
 import { PrestamosComponent } from './secciones/prestamos/prestamos.component';
 import { RegisterclientComponent } from './seguridad/registerclient/registerclient.component';
@@ -23,6 +24,7 @@ import { HacerprestamoComponent } from './prestamos/hacerprestamo/hacerprestamo.
 import { EditarprestamoComponent } from './prestamos/editarprestamo/editarprestamo.component';
 import { RegistrarpagoComponent } from './prestamos/registrarpago/registrarpago.component';
 import { HistorialpagoComponent } from './prestamos/historialpago/historialpago.component';
+
 
 
 @NgModule({
@@ -42,7 +44,8 @@ import { HistorialpagoComponent } from './prestamos/historialpago/historialpago.
     HacerprestamoComponent,
     EditarprestamoComponent,
     RegistrarpagoComponent,
-    HistorialpagoComponent    
+    HistorialpagoComponent,
+    ModifyComponent    
   ],
   imports: [
     routing,

@@ -18,16 +18,63 @@
         </ul>
         
         
-        
+          
         <div id="content-wrapper" class="d-flex flex-column">
+            
             <div id="content">
                 <app-header></app-header>
-              
+                <div class="col-lg-4" style="margin: 0 auto;">
+                    <div class="form-group" *ngIf="errorStatus_0 === true">
+                        <span class="help-block">
+                            <strong>{{ errorMsj_0 }}</strong>
+                        </span>
+                    </div>
+                    <div class="form-group" *ngIf="errorStatus_1 === true">
+                        <span class="help-block">
+                            <strong>{{ errorMsj_1 }}</strong>
+                        </span>
+                    </div>
+                    <div class="form-group" *ngIf="errorStatus_2 === true">
+                        <span class="help-block">
+                            <strong>{{ errorMsj_2 }}</strong>
+                        </span>
+                    </div>
+                    <div class="form-group" *ngIf="errorStatus_3 === true">
+                        <span class="help-block">
+                            <strong>{{ errorMsj_3 }}</strong>
+                        </span>
+                    </div>
+                    <div class="form-group" *ngIf="exitStatus === true">
+                        <span class="help-block">
+                            <strong>{{ exitMsj }}</strong>
+                        </span>
+                    </div>
+                    <form [formGroup]= "saldoForm" (ngSubmit)="onModificar(saldoForm.value)">
+                <div class="form-group">
+                    Cantidad (COP)                   
+                   <input type="number" id="cantidad" formControlName="cantidad" class="form-control form-control-user" min="1" max="4v200000000" value="" placeholder="Ingreso agregado al saldo">
+             
+                </div>
+               <div class="form-group">
+                   
+                  Tipo de modificación
+                   
+               <select formControlName ="tipo" class="form-control" id="inputSeccion_id">
+                       
+                      <option value ="true"> Agregar saldo</option>
+                      <option value ="false">Restar saldo</option>
+ 
+                  </select>
+                  <br>
+                  <input type="submit"  class="btn btn-success btn-user btn-block" value="enviar">
+                    
+               </div>
+            </form> 
                 
 
                 
             </div>
-            
+            </div>
             <app-footer></app-footer>
         </div>
     </div>
@@ -36,3 +83,4 @@
         <i class="fas fa-angle-up"></i>
     </a>
 </body>
+

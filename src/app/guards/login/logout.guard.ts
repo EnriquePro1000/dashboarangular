@@ -16,7 +16,7 @@ export class LogoutGuard implements CanActivate {
       if(localStorage.getItem("logged") !== "true" ) {
      
        
-        this.router.navigate(['login']);
+        this.router.navigate(['']);
 
       //  alert("bloqueado")
    

@@ -11,6 +11,7 @@ import { RegisterGuard } from './guards/register/register.guard';
 import { LoginComponent } from './seguridad/login/login.component';
 
 import { RegisterComponent } from './seguridad/register/register.component';
+import { ModifyComponent } from './seguridad/modify/modify.component';
 import { RegisterclientComponent } from './seguridad/registerclient/registerclient.component';
 import { ModifyclientComponent } from './seguridad/modifyclient/modifyclient.component';
 import { ModifysaldoComponent } from './seguridad/modifysaldo/modifysaldo.component';
@@ -24,12 +25,13 @@ import { HomeComponent } from './vistas/home/home.component';
 import { IndexComponent } from './vistas/index/index.component';
 
 const appRoutes = [
-  { path: '', component: IndexComponent,  pathMatch: 'full'},
+  { path: '', component: LoginComponent,  pathMatch: 'full',canActivate: [LoginGuard]},
 
-  { path: 'login', component: LoginComponent,  pathMatch: 'full',canActivate: [LoginGuard]},
+ // { path: 'login', component: LoginComponent,  pathMatch: 'full',canActivate: [LoginGuard]},
   { path: 'home', component: HomeComponent,  pathMatch: 'full',canActivate: [LogoutGuard]},
 
   { path: 'registrar', component: RegisterComponent,  pathMatch: 'full',canActivate: [LogoutGuard, RegisterGuard]},
+  { path: 'modificar', component: ModifyComponent,  pathMatch: 'full',canActivate: [LogoutGuard, RegisterGuard]},
   { path: 'registrarCliente', component: RegisterclientComponent,  pathMatch: 'full',canActivate: [LogoutGuard]},
   {path: 'modificarCliente', component: ModifyclientComponent,pathMatch: 'full',canActivate: [LogoutGuard]},
   {path: 'modificarSaldo', component: ModifysaldoComponent,pathMatch: 'full',canActivate: [LogoutGuard]},

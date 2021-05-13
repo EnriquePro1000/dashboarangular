@@ -9,7 +9,7 @@ export class ModifyclientComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
     localStorage.setItem("view", "modifyclient");
     localStorage.setItem("section", "seguridad");
   }

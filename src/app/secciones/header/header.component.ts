@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../servicios/api/api.service';
 import { Router } from '@angular/router';
 import { ResponseI } from '../../interfaces/response.interface';
-
+import {formatNumber} from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -13,8 +13,12 @@ export class HeaderComponent implements OnInit {
 
   constructor(  private api:ApiService, 
     private router:Router) { }
+     cupo:string = "0";
 
-  ngOnInit(): void {
+  ngOnInit(): void {   
+
+      this.cupo = formatNumber(Number(localStorage.getItem("cupo")), 'en-US', '1.0-0')
+    
   }
 
 
@@ -28,7 +32,8 @@ export class HeaderComponent implements OnInit {
       localStorage.setItem("logged","false");
       localStorage.setItem("token","null");    
       localStorage.setItem("level","null");
-        window.location.href="/login"
+      localStorage.setItem("cupo", "0");
+        window.location.href=""
 
    
   }else{

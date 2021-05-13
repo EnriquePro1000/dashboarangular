@@ -12,7 +12,8 @@
             <hr class="sidebar-divider">
             
 
-           <app-seguridad></app-seguridad>            
+           <app-seguridad></app-seguridad>
+            
             <app-prestamos></app-prestamos>
             
             <hr class="sidebar-divider">
@@ -23,12 +24,69 @@
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
                 <app-header></app-header>
-              
-                
+              <!-- Formulario de registro de usuario-->  
+                <div class="col-lg-4" style="margin: 0 auto;">
+                  
+                  
+                    <form [formGroup]= "RegisterclientForm" (ngSubmit)="onRegisterclient(RegisterclientForm.value)" enctype="multipart/form-data">
+                        <div class="form-group" *ngIf="errorStatus_0 === true">
+                            <span class="help-block">
+                                <strong>{{ errorMsj_0 }}</strong>
+                            </span>
+                        </div>
+                        <div class="form-group" *ngIf="errorStatus_1 === true">
+                            <span class="help-block">
+                                <strong>{{ errorMsj_1 }}</strong>
+                            </span>
+                        </div>
+                        <div class="form-group" *ngIf="exitStatus === true">
+                            <span class="help-block">
+                                <strong>{{ exitMsj }}</strong>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                        Cedula:
+                        <input type="text" class="form-control form-control-user" formControlName='cedula' placeholder="(obligatorio)" value="" maxlength="40">
+                    </div>
+                   
+                    <div>
+                   <!--      Tipo prestamo:
+                <select formControlName="tipo_prestamo" class="form-control"  >                         
+                        <option value ="1">Prestamos por días</option>
+                        <option value ="2">Prestamos por mes</option>   
+                    </select>  -->   
+                    </div> 
+                    
+                    <div class="form-group">
+                        Nombres:
+                        <input type="text" class="form-control form-control-user" formControlName='nombres' placeholder="(obligatorio)" value="" maxlength="65" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                    </div>
+                    <div class="form-group">
+                        apellidos:
+                        <input type="text" class="form-control form-control-user" formControlName='apellidos' placeholder="(obligatorio)" value="" maxlength="65" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                    </div>
+                    <div class="form-group">
+                        Dirección:
+                        <input type="text" class="form-control form-control-user" formControlName='direccion' placeholder="(obligatorio)" value="" maxlength="95" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                    </div>
+                    <div class="form-group">
+                        Telefono:
+                        <input type="text" class="form-control form-control-user" formControlName='telefono' placeholder="(obligatorio)" value="" maxlength="20" onkeyup="javascript:this.value=this.value.toLowerCase();">
+                    </div>
+                  <!--  <div class="form-group">
+                        Imagen de la cedula del cliente (opcional)<br>            
+                        <input type="file" formControlName='file' value="">          
+                            
+                    </div>   -->
 
-                
+                    <button class="btn btn-success btn-user btn-block" type="submit">registrar</button>
+                    <button class="btn btn-secondary btn-user btn-block" type="reset">Limpiar</button>
+                    </form>
+                  
+                </div>
+              
+               <!-- Fin del formulario de registro de usuario-->            
             </div>
-            
             <app-footer></app-footer>
         </div>
     </div>
@@ -36,4 +94,12 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
+
 </body>
+<script>
+    document.getElementById('image1').onchange = function () {
+  console.log(document.getElementById('image1').files[0].name);
+ // document.getElementById('fichero').innerHTML = document.getElementById('image1').files[0].name;
+}
+</script>
+

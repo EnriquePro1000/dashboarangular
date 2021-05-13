@@ -20,6 +20,8 @@ export class SeguridadComponent implements OnInit {
   activeModifyClient:boolean = true;
   inactiveModifyClient:boolean = false;
 
+  activeModifyUser:boolean = false;
+
   activeModifySaldo:boolean = true;
   inactiveModifySaldo:boolean = false;
   
@@ -47,6 +49,12 @@ export class SeguridadComponent implements OnInit {
     }else{
       this.activeRegisterUser = true;
       this.inactiveRegisterUser = false;
+    }
+
+    if(localStorage.getItem("view") === "modifyuser"){
+      this.activeModifyUser = true;
+    }else{
+      this.activeModifyUser = false;
     }
 
     if(localStorage.getItem("view") === "registerclient"){

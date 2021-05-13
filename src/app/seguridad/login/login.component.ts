@@ -38,7 +38,8 @@ onLogin(form){
             if(dataResponse.status == "ok"){
                 localStorage.setItem("token",dataResponse.result.api_token);    
                 localStorage.setItem("logged","true");
-                localStorage.setItem("level",dataResponse.result.level);                     
+                localStorage.setItem("level",dataResponse.result.level); 
+                localStorage.setItem("cupo",dataResponse.result.cupo);                   
                 this.router.navigate(['home']); 
                 console.log(data)            
             }

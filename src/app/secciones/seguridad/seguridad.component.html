@@ -15,6 +15,12 @@
             <div  *ngIf="inactiveRegisterUser" >
                 <a class="collapse-item active"   routerLink="/registrar" >Registrar usuario</a>
             </div>
+            <div *ngIf="activeModifyUser === true">
+                <a class="collapse-item  active "   routerLink="/modificar" >Modificar usuario</a>
+                </div>
+                <div  *ngIf="activeModifyUser === false" >
+                    <a class="collapse-item"   routerLink="/modificar" >Modificar usuario</a>
+                </div>
         </div>
             <div *ngIf="inactiveRegisterClient">
                 <a class="collapse-item" routerLink="/registrarCliente" >Registrar cliente</a> 
@@ -54,6 +60,7 @@
         <div class="bg-white py-2 collapse-inner rounded">  
             <div *ngIf="canRegister">         
             <a class="collapse-item"   routerLink="/registrar" >Registrar usuario</a>
+            <a class="collapse-item"   routerLink="/modificar" >Modificar usuario</a>
             </div>
             <a class="collapse-item"  routerLink="/registrarCliente" >Registrar cliente</a> 
            <a class="collapse-item" routerLink="/modificarCliente">Modificar cliente</a>
